@@ -46,11 +46,13 @@ git log
 mkdir capitulos
 cd capitulos
 echo -e "Git es un sistema de control de versiones ideado por Linus Torvalds." > capitulo1.txt
+git commit -m "Añadido capítulo 2."
 git add .
 git commit -m "Añadido capítulo 1."
 git log
 
 Ejercicio 2
+
 echo -e "El flujo de trabajo básico con Git consiste en: 1- Hacer cambios
 en el repositorio. 2- Añadir los cambios a la zona de
 intercambio temporal. 3- Hacer un commit de los cambios." > capitulo2.txt
@@ -71,3 +73,47 @@ echo "Capítulo 5: Conceptos avanzados" >> indice.txt
 git add .
 git commit -m "Añadido capítulo 5 al índice."
 git annotate indice.txt
+
+PRACTICA 3
+
+cd libro-git
+git reset --hard 48ed8
+git remote remove origin
+
+Ejercicio 1
+git branch bibliografia
+
+Ejercicio 2
+cd capitulos
+echo -e "patata" > capitulo4.txt
+git add .
+git commit -m "Añadido capítulo 4."
+git log --graph --all --oneline
+
+Ejercicio 3
+git branch checkout bibliografia
+echo -e "Chacon, S. and Straub, B. Pro Git. Apress." > bibliografia.txt
+git add .
+git commit -m "Añadida primera referencia bibliográfica" 
+git log --graph --all --oneline
+
+Ejercicio 4
+git checkout master
+git merge bibliografia
+git log --graph --all --oneline
+git branch -d bibliografia
+git log --graph --all --oneline
+
+Ejercicio 5
+git branch bibliografia
+git checkout bibliografia
+echo -e "Scott Chacon and Ben Straub. Pro Git. Apress. Ryan Hodson. Ry’s Git Tutorial. Smashwords (2014)" > bibliografia.txt
+git add .
+git commit -a -m "Añadida nueva referencia bibliográfica."
+git checkout master
+echo -e "Chacon, S. and Straub, B. Pro Git. Apress. Loeliger, J. and McCullough, M. Version control with Git. O’Reilly." > bibliografia.txt
+git commit -a -m "Añadida nueva referencia bibliográfica."
+git merge bibliografia
+echo -e "Chacon, S. and Straub, B. Pro Git. Apress. Loeliger, J. and McCullough, M. Version control with Git. O’Reilly. Hodson, R. Ry’s Git Tutorial. Smashwords (2014)" > bibliografia.txt
+git commit -a -m "Resuelto conflicto de bibliografía"
+git log --graph --all --oneline
