@@ -83,6 +83,7 @@ git remote remove origin
 
 Ejercicio 1
 git branch bibliografia
+git branch
 
 Ejercicio 2
 cd capitulos
@@ -92,7 +93,7 @@ git commit -m "Añadido capítulo 4."
 git log --graph --all --oneline
 
 Ejercicio 3
-git branch checkout bibliografia
+git checkout bibliografia
 echo -e "Chacon, S. and Straub, B. Pro Git. Apress." > bibliografia.txt
 git add .
 git commit -m "Añadida primera referencia bibliográfica" 
